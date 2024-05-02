@@ -405,7 +405,7 @@ Manage your project's submodules more effectively with these commands.
 | `git submodule update --init --recursive`    | Initializes and updates submodules recursively.                                                                                                                       |
 | `git clone --recurse-submodules <repo_link>` | Clone a repository including all its submodules.                                                                                                                      |
 
-### 🔍 Search and Find
+### Search and Find 🔍
 
 Enhance your ability to find specific changes or contributions within your Git repository.
 
