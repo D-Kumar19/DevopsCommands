@@ -132,6 +132,8 @@ Sometimes you need to undo changes or clean up your working directory. Whether y
 
 Restoring files to a previous state can help in quickly fixing mistakes by pulling data from earlier commits or the staging area.
 
+| Command                                   | Description                                                                                                                                                              |
+|:------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `git restore <file_name>`                 | Restores a file from the staging area back to the working directory. Example: `git restore example.txt`.                                                                 |
 | `git restore ./`                          | Restores all files in the current directory from the staging area back to the working directory.                                                                         |
 | `git restore --staged <file_name>`        | Unstages a file while keeping the changes in the working directory. Example: `git restore --staged example.txt`.                                                         |
@@ -169,8 +171,6 @@ The ability to view and understand the commit history is what makes Git such a p
 | `git log --oneline`                          | Condenses each commit to a single line, showing a short SHA and the commit message.                                                                                   |
 | `git log --oneline --reverse`                | Displays all commits in reverse order, starting from the oldest to the most recent, in a condensed one-line format.                                                   |
 | `git log --oneline --graph --decorate --all` | Shows a visual graph of all branches, tags, and commits, decorated and condensed into one-line entries.                                                               |
-| `git log --author='<name>'`                  | Shows commits authored by `<name>`. For example, `git log --author='John'` will only show commit made by `John`.                                                      |
-| `git log --grep='<something>'`               | Searches commit messages for the term `something`. For example, `git log --grep='bug fix'` will only show commit that include `bug fix` in description.               |
 
 ## Exploring Git Repository Objects 🔍
 
@@ -274,7 +274,7 @@ In this section, you'll find the essential commands to set up and manage remote 
 ### Clone Repository 🌐
 
 | Command                     | Description                                                                                                                                                                            |
-|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `git clone <repo_link>`     | Clone a repository into a directory named after the repo.                                                                                                                              |
 | `git clone <repo1> <repo2>` | Clone from `repo1` into `repo2`, a specific directory.                                                                                                                                 |
 
@@ -283,7 +283,7 @@ In this section, you'll find the essential commands to set up and manage remote 
 Adding an 'origin' is crucial for defining the primary remote source of your repository. This typically points to the repository from which you directly push and pull changes. Additionally, setting up an 'upstream' is fundamental for working with forks, allowing you to stay updated with the original repository.
 
 | Command                               | Description                                                                                                                                                                  |
-|---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:--------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `git remote add origin <origin_link>` | Add 'origin' as a remote. This is typically the primary repository on services like GitHub, GitLab, or Bitbucket.                                                            |
 | `git remote add upstream <repo_link>` | Add 'upstream' as a remote. Useful for forks to keep track of the original repository.                                                                                       |
 | `git remote -v`                       | List all configured remotes to check URLs associated with `origin` and `upstream`.                                                                                           |
@@ -295,7 +295,7 @@ Adding an 'origin' is crucial for defining the primary remote source of your rep
 This subsection explains how to sync your changes with remote repositories. Pushing commits to your remote branches and pulling updates from them are everyday activities in a developer’s workflow. Master these commands to ensure your repository remains in sync with others’ work and to prevent conflicts.
 
 | Command                                        | Description                                                                                                                                                         |
-|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `git push -u origin main`                      | Push the 'main' branch to 'origin' and set it to track the remote branch.                                                                                           |
 | `git push --set-upstream origin <branch_name>` | Push a new branch to 'origin' and set it to track the remote branch. This is only needed the first time.                                                            |
 | `git push --all`                               | Push all local branches to their corresponding remote branches.                                                                                                     |
@@ -306,13 +306,6 @@ This subsection explains how to sync your changes with remote repositories. Push
 | `git fetch upstream`                           | Fetch changes from the 'upstream' remote repository, typically used to keep a fork up to date.                                                                      |
 | `git merge upstream/<branch>`                  | Merge changes from a specific branch of 'upstream' into the current branch.                                                                                         |
 | `git pull upstream <branch>`                   | Pull changes directly from an 'upstream' branch, combining fetch and merge in one step.                                                                             |
-
-
-
-
-ssh-keygen -t rsa -b 4096 -C "email address"
-name of the gile and passphrase put and later cat it out maybe
-add public key to github and try to push something (just for checking purpoese)
 
 ## Cloning a Repository Using SSH 🗝️
 
@@ -370,6 +363,59 @@ Using SSH to clone repositories provides a secure way to authenticate to GitHub 
 
 ## Advance Git
 
-### Reflog
+### Interactive Changes 🔄
 
-### Interactive Changes
+This section covers the usage of *Interactive Rebasing*, which allows for manual adjustments to your commit history through an interactive editor.
+
+| Command               | Description                                                                                                                                                                                  |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `git rebase -i <sha>` | Initiates an interactive rebase starting from the specified SHA. This opens a window where you can choose various keywords for actions:                                                      |
+|                       | Examples:                                                                                                                                                                                    |
+|                       | - `reword` - Change the commit message of a specific commit.                                                                                                                                 |
+|                       | - `edit` - Pause at that commit to add, delete, or alter files, then continue rebasing.                                                                                                      |
+|                       | - `squash` - Merge this commit with the previous one, combining the commit messages.                                                                                                         |
+|                       | - `drop` - Remove the commit entirely from the history during the rebase.                                                                                                                    |
+
+### Cherry-pick 🍒
+
+This section explains how to selectively apply changes from specific commits from one branch into another branch.
+
+| Command                 | Description                                                                                                                                                                                |
+|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `git cherry-pick <sha>` | Applies the changes introduced by the specified commit's SHA to the current branch. This is useful for pulling in bug fixes or features from other branches without merging full branches. |
+
+### Reflog 🕵️‍♂️
+
+Reflog is a mechanism to record updates to the tip of branches and other Git references. It is very useful for recovering lost commits.
+
+| Command                                | Description                                                                                                                                                                 |
+|:---------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `git reflog`                           | Shows a log of where your HEAD and branch references have been.                                                                                                             |
+| `git reset --hard <copied_sha_value>`  | Resets the current branch's HEAD to the specified SHA, potentially recovering lost commits.                                                                                 |
+| `git branch <branch_name> <sha_value>` | Creates a new branch named `<branch_name>` starting from the `<sha_value>`. If the SHA refers to a deleted branch, this effectively recovers it.                            |
+
+### Submodules 🧩
+
+Manage your project's submodules more effectively with these commands.
+
+| Command                                      | Description                                                                                                                                                           |
+|:---------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `git submodule add <repo_link>`              | Adds a submodule repository at `<repo_link>` to the current repository.                                                                                               |
+| `cat .gitmodules`                            | Displays the configurations of the submodules.                                                                                                                        |
+| `git submodule update --init --recursive`    | Initializes and updates submodules recursively.                                                                                                                       |
+| `git clone --recurse-submodules <repo_link>` | Clone a repository including all its submodules.                                                                                                                      |
+
+### 🔍 Search and Find
+
+Enhance your ability to find specific changes or contributions within your Git repository.
+
+| Command                                | Description                                                                                                                                                                 |
+|:---------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `git log --author='<name>'`            | Shows commits authored by `<name>`. For example, `git log --author='John'` will display commits made by John.                                                               |
+| `git log --grep='<something>'`         | Searches for a term `<something>` in commit messages. For example, `git log --grep='bug fix'` finds commits mentioning 'bug fix'.                                           |
+| `git log --after='<date>'`         | Lists commits made after the specified `<date>`. For example, `git log --after='2022-01-01'` |
+| `git log --before='<date>'`        | Lists commits made before the specified `<date>`. For example, `git log --before='2022-12-31'` |
+| `git log -- <file_name>`           | Displays the commits affecting the specified file. For example, `git log -- README.md` |
+| `git log branch_name..branch_name` | Shows commits that are on the second branch but not on the first, useful for comparing branches. For example, `git log master..feature-branch`                     |
+
+*And DONE*
