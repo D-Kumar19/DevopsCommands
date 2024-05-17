@@ -226,6 +226,7 @@ Branching is fundamental in Git to enable simultaneous work on multiple features
 | `git checkout -b <new_branch_name>`        | Creates a new branch with the specified name and switches to it. Example: `git checkout -b feature_x`.                                                                  |
 | `git switch <branch_name>`                 | Switches to the specified branch. Example: `git switch hotfix`.                                                                                                         |
 | `git switch -c <new_branch_name>`          | Creates a new branch with the specified name and switches to it. Example: `git switch -c experimental_feature`.                                                         |
+| `git switch -c <new_branch_name> <sha_value>` | Creates a new branch with the specified name on specified <sha_value> and switches to it. Example: `git switch -c experimental_feature 1006911`.                     |
 
 ### Merging 🤝
 
