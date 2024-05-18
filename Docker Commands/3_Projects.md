@@ -1,4 +1,12 @@
-# Tasks
+# Completed Projects
+
+## Python Projects
+
+1. Calculator Application using Python Image
+2. Webpage using Flask and passing environment variables and exposing ports and changing the colors of webpage based on the color of environment variable.
+
+
+### Tasks
 
     - docker image which runs a java project
     - docker image which runs a cpp project
