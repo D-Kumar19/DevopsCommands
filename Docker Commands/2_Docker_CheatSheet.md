@@ -454,7 +454,7 @@ These commands help you manage Docker networks, including listing, inspecting, a
 | `docker network create <network_name>`  | Creates a new Docker network with the specified name.                                                                                                                      |
 |                                         | **Example:**                                                                                                                                                               |
 |                                         | `docker network create myNetwork` - Creates a network named `myNetwork`.                                                                                                   |
-| `docker network rm <volume_name>`       | Removes a Docker network.                                                                                                                                                  |
+| `docker network rm <network_name>`       | Removes a Docker network.                                                                                                                                                 |
 |                                         | **Example:**                                                                                                                                                               |
 |                                         | `docker network rm myNetwork` - Removes the network named `myNetwork`.                                                                                                     |
 
