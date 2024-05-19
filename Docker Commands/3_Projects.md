@@ -31,7 +31,7 @@ Welcome to our project showcase! Here you'll find a collection of exciting proje
 ## 🌍 Web Application
 
 Deploy a sleek, responsive web application using a Bootstrap template and Nginx, all orchestrated with Docker Compose. Perfect for modern web development.
-[View the Web Application Project](Projects/Web%20Application%20Project) 🌐
+[View the Web Application Project](Projects/Web%20Application) 🌐
 
 ## 🗂️ Full Stack Application
 
