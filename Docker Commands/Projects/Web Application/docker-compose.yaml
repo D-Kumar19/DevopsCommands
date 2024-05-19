@@ -1,0 +1,16 @@
+services:
+  web_application:
+    build: .
+    container_name: web_application
+    ports:
+      - "80:80"
+    volumes:
+      - web_data:/usr/share/nginx/html
+    networks:
+      - web_net
+
+volumes:
+  web_data:
+
+networks:
+  web_net:
