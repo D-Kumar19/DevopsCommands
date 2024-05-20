@@ -4,11 +4,11 @@ This repository 📁 is your hub for various DevOps command collections. Navigat
 
 ## 📂 Repository Structure
 
-- [Bash Commands](./Bash%20Commands/README.md) 📜
+- [Bash Commands](./Bash%20Commands/README.md) (Inprogres)📜
 - [Git Commands](./Git%20Commands/README.md) 🌿
 - [Docker Commands](./Docker%20Commands/README.md) 🐳
-- [Kubernetes Commands](./Kubernetes%20Commands/README.md) ⚓
-- [Helm Commands](./Helm%20Commands/README.md) 🚢
+- [Kubernetes Commands](./Kubernetes%20Commands/README.md) (Inprogres)⚓
+- [Helm Commands](./Helm%20Commands/README.md) (Inprogres)🚢
 
 ## Overview 🌐
 
