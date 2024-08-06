@@ -126,7 +126,7 @@ Sometimes you need to undo changes or clean up your working directory. Whether y
 | `git rm <file_name>`                      | Removes a file from the working directory and stages the deletion. Example: `git rm example.txt`.                                                                        |
 | `git rm .`                                | Removes all files from the current directory and stages the deletions.                                                                                                   |
 | `git rm --cached <file_name>`             | Removes a file from the staging area but leaves it in the working directory. Example: `git rm --cached example.txt`.                                                     |
-| `git rm --cached .`                       | Removes all files from the staging area but leaves them in the working directory.                                                                                        |
+| `git rm --cached .`                       | Removes all files from the staging area but leaves them in the working directory. Don't forget to use `-r` for recursive.                                                |
 
 ### Restoring Changes 🔄
 
