@@ -1,4 +1,4 @@
-# DevOps Command Cheat Sheet 🚀
+# DevOps Command Sheet 🚀
 
 This repository 📁 is your hub for various DevOps command collections. Navigate through the directories to find specific commands for Bash, Git, Docker, and Kubernetes, designed to enhance your workflow efficiency.
 
