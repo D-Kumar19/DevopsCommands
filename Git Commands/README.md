@@ -142,6 +142,20 @@ Restoring files to a previous state can help in quickly fixing mistakes by pulli
 | `git restore --staged --worktree <file>` or `./`               | Unstages changes to a file and restores the file to the state it has in the current commit, keeping the changes in the working directory.           |
 | `git restore --source=HEAD --staged --worktree <file>` or `./` | Resets a file to the state it has in the latest commit (`HEAD`), both in the staging area and the working directory.                                |
 
+### Reverting Changes 🔄
+
+The `git revert` command creates a new commit that undoes changes introduced by a previous commit. It is useful for safely undoing changes without altering the commit history.
+
+| **Command**                            | **Description**                                                                                                                                                             |
+|:---------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `git revert <commit-hash>`             | Reverts the specified commit by creating a new commit that undoes the changes. Example: `git revert abc1234`.                                                               |
+| `git revert HEAD`                      | Reverts the most recent commit.                                                                                                                                             |
+| `git revert <commit-hash> --no-commit` | Prepares the revert but does not automatically create a commit. Allows you to review or modify changes before committing.                                                   |
+| `git revert <commit-hash> --edit`      | Opens the commit message editor to allow you to modify the default revert message.                                                                                          |
+| `git revert <commit-hash> --no-edit`   | Uses the default commit message without opening an editor.                                                                                                                  |
+| `git revert --continue`                | Continues the revert process after resolving any merge conflicts.                                                                                                           |
+| `git revert --abort`                   | Aborts the revert process, canceling any changes made during the revert attempt.                                                                                            |
+
 ### Comparing Changes 📊
 
 Git offers a robust set of tools for comparing changes across commits, branches, or even different stages of the staging area. Understanding these differences is vital for effective team collaborations and individual work.
